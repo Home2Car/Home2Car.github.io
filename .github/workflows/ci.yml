@@ -33,7 +33,7 @@ jobs:
           hugo-version: latest
 
       - name: Build local
-        run: hugo --minify --source ../. --destination ../public --baseURL https://nicola-ferrarese.github.io/Home2Car-LandingPage/
+        run: hugo --minify --source ./  --destination ../public --baseURL https://nicola-ferrarese.github.io/Home2Car-LandingPage/
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push'
