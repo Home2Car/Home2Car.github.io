@@ -33,7 +33,7 @@ jobs:
           hugo-version: latest
 
       - name: Build local
-        run: hugo --theme hugo-product-launch  --source ../Home2Car-LandingPage --minify
+        run: hugo --minify --destination ../public --source ./exampleSite --themesDir ../..
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4.0.0
