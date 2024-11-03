@@ -51,11 +51,8 @@ jobs:
           echo "Contents of public directory:"
           ls -la public || echo "public directory not found"
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master'
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          force_orphan: true  # Add this to ensure clean deployment
-          commit_message: "Deploy: ${{ github.sha }}"  # Add custom commit message
+          folder: public
