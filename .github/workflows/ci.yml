@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - master
-# Add these permissions
+
 permissions:
   contents: read
   pages: write
@@ -16,10 +16,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: true  # Important for theme files
 
       - name: Read node-version from .nvmrc
         id: nvm
@@ -30,33 +35,37 @@ jobs:
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
-      - run: npm install
+      # Modified npm install steps
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install -D @fullhuman/postcss-purgecss@6.0.0
+          npm install -D @tailwindcss/typography@0.4.1
+          npm install -D autoprefixer@10.4.20
+          npm install -D postcss@8.4.47
+          npm install -D postcss-cli@11.0.0
+          npm install -D postcss-import@16.1.0
+          npm install -D tailwindcss@2.2.16
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3.0.0
+        uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
 
-      # Add these debugging steps
-      - name: Debug - Show Hugo version
-        run: hugo version
-
-      - name: Debug - List directory structure before build
-        run: ls -la
+      # Add debugging for CSS processing
+      - name: Debug CSS setup
+        run: |
+          echo "Contents of assets/css:"
+          ls -la assets/css || echo "No assets/css directory"
+          echo "Checking PostCSS config:"
+          cat postcss.config.js || echo "No postcss.config.js found"
+          echo "Checking Tailwind config:"
+          cat tailwind.config.js || echo "No tailwind.config.js found"
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --debug
 
-      # Add more debugging steps
-      - name: Debug - List public directory after build
-        run: |
-          echo "Contents of current directory:"
-          ls -la
-          echo "Contents of public directory:"
-          ls -la public || echo "public directory not found"
-
-      # Add these new steps for Pages deployment
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
