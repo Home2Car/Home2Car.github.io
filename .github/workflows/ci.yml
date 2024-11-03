@@ -15,9 +15,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: true  # Add this if you're using themes as submodules
-          fetch-depth: 0    # Add this for full git history
 
       - name: Read node-version from .nvmrc
         id: nvm
