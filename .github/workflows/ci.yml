@@ -33,10 +33,9 @@ jobs:
           hugo-version: latest
 
       - name: Build local
-        run: hugo --minify --theme hugo-product-launch
+        run: hugo --theme hugo-product-launch --minify
 
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
