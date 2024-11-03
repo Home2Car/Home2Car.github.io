@@ -33,7 +33,7 @@ jobs:
           hugo-version: latest
 
       - name: Build local
-        run: hugo --minify --destination ../public --source ./exampleSite --themesDir ../..
+        run: hugo --minify --destination ../public --source ./ --themesDir ../..
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4.0.0
