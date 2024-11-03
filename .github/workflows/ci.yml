@@ -51,6 +51,15 @@ jobs:
           echo "Contents of public directory:"
           ls -la public || echo "public directory not found"
 
+      # Add these new steps for Pages deployment
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
