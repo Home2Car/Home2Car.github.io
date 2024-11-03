@@ -31,7 +31,6 @@ jobs:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
       - run: npm install
-      - run: npm install postcss-cli postcss -g
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3.0.0
