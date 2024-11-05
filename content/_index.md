@@ -10,8 +10,8 @@ header_button_cta:
 teaser_image: "images/bg.jpg" # https://www.pexels.com/search/product%20testing/
 ---
 
-# Home2Car
-Introdusctory text to get you excited about what we are doing. For example, I could tell you what our [prototype](#prototype) can do and then link you to our [contact form](#contact-form) so you can get in touch to ask for a **one-on-one** (or more :-)) showcase session.
+# Potrai andare ovunque con la tua auto elettrica. Come?
+Introductory text to get you excited about what we are doing. For example, I could tell you what our [prototype](#prototype) can do and then link you to our [contact form](#contact-form) so you can get in touch to ask for a **one-on-one** (or more :-)) showcase session.
 
 ---
 Have we cht yssour attention? We appreciate your feedback at this early stage of our product. Do not hesitate to contact us. In fact, if your interested, we'd love to give you a tour of the prototype we built.
