@@ -1,10 +1,11 @@
-<form
-        {{ with .Get "action" }}action="{{ . }}"{{ end }}
-id="{{ with .Get "id" }}{{ . }}{{ else }}contact-form{{ end }}"
-class="pb-10"
-name="contact"
-onsubmit="handleSubmit(event)"
+<form {{
+      with .Get "action" }}action="{{ . }}"{{ end }}
+  id="{{ with .Get "id" }}{{ . }}{{ else }}contact-form{{ end }}"
+  class="pb-10"
+  name="contact"
+  onsubmit="handleSubmit(event)"
 >
+
 <div class="hidden">
   <input name="you-like-this-field" />
 </div>
@@ -34,6 +35,21 @@ onsubmit="handleSubmit(event)"
   </div>
 </div>
 
+<!-- Message textarea -->
+<div class="grid grid-cols-1 mt-6">
+  <div class="border-t border-teal-500 py-2">
+      <textarea
+              required
+              id="message"
+              name="message"
+              rows="2"
+              placeholder="{{ with .Get "placeholder_message" }}{{ . }}{{ else }}Message{{ end }}"
+    class="appearance-none w-full bg-transparent text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+    height="100"
+    ></textarea>
+  </div>
+</div>
+
 <!-- Radio buttons for possession -->
 <div class="mt-6">
   <p class="text-gray-700 font-medium mb-3">Possiedi:</p>
@@ -60,6 +76,7 @@ onsubmit="handleSubmit(event)"
   </div>
 </div>
 
+
 <!-- Conditional question (initially hidden) -->
 <div id="support-question" class="mt-6 hidden">
   <p class="text-gray-700 font-medium mb-3">Vorresti supportare il progetto di home2car rendendoti disponibile ad essere contattato nelle prime fasi di staging della nostra piattaforma?</p>
@@ -73,20 +90,6 @@ onsubmit="handleSubmit(event)"
       <input type="radio" name="support" value="no" class="form-radio text-teal-500">
       <span class="text-gray-700">No, grazie</span>
     </label>
-  </div>
-</div>
-
-<!-- Message textarea -->
-<div class="grid grid-cols-1 mt-6">
-  <div class="border-t border-teal-500 py-2">
-      <textarea
-              required
-              id="message"
-              name="message"
-              rows="6"
-              placeholder="{{ with .Get "placeholder_message" }}{{ . }}{{ else }}Message{{ end }}"
-    class="appearance-none w-full bg-transparent text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-    ></textarea>
   </div>
 </div>
 
@@ -112,17 +115,6 @@ onsubmit="handleSubmit(event)"
       supportRadios.forEach(radio => radio.checked = false);
     }
   }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    // Get form data
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    // Add your form submission logic here
-    console.log('Form data:', data);
-  }
 </script>
 
 <script>
@@ -133,26 +125,63 @@ onsubmit="handleSubmit(event)"
     const formData = {
       name: form.name.value,
       email: form.email.value,
+      possession: form.possession.value,
+      support: form.support?.value || 'N/A', // Optional field as it might be hidden
       message: form.message.value,
       timestamp: new Date().toISOString()
     };
 
+    // Validation
+    if (!formData.name || !formData.email || !formData.possession || !formData.message) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwC-oGBqur2CTDM_tywhxCVPgvXZC4bNC1R4B315zpO-DnmvpOoPfH1r8JcgbiEy9oUgA/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-      console.log('Form submitted', response);
-      // Clear the form
+      // Show loading state
+      const submitButton = form.querySelector('button');
+      const originalButtonText = submitButton.innerHTML;
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Sending...';
+
+      try {
+        console.log('Submitting form', formData);
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxPbfQ4NPZha78CS-aj-4t5Lt04J2BB6sfNLWwmBt_cKTsU4BUuJwv_lQy8pTpdItmtFQ/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+        console.log('Form submitted', formData);
+        // Clear the form
+        // form.reset();
+        alert('Thank you for your message!');
+      } catch (error) {
+        alert('There was an error submitting the form. Please try again.');
+        console.error(error);
+      }
+
+      // Reset form and show success message
       form.reset();
-      alert('Thank you for your message!');
+      submitButton.innerHTML = originalButtonText;
+      submitButton.disabled = false;
+
+      // Hide the support question after form reset
+      document.getElementById('support-question').classList.add('hidden');
+
+      // Show success message
+      alert('Grazie per averci contattato!');
+
     } catch (error) {
-      alert('There was an error submitting the form. Please try again.');
-      console.error(error);
+      console.error('Submission error:', error);
+      alert('Si è verificato un errore durante l\'invio del modulo. Per favore riprova.');
+
+      // Reset button state
+      submitButton.innerHTML = originalButtonText;
+      submitButton.disabled = false;
     }
   }
+
 </script>

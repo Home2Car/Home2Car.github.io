@@ -90,6 +90,12 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
+#contact-form  {
+    padding: 1rem;
+    background: aliceblue;
+    border-radius: 0.75rem;
+}
+
 /*
 #
 # Content below the header
