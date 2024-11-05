@@ -2,6 +2,16 @@
   class="button button-primary rounded-lg px-4 md:px-5 py-3 md:py-4 bg-teal-500 hover:bg-teal-600 md:text-lg md:leading-tight text-white font-semibold leading-tight shadow-md"
   href="{{ .url }}"
   id="button-cta"
+  onclick="scrollToContact(event)"
 >
   {{ .title }}
 </a>
+<script>
+  function scrollToContact(e) {
+    e.preventDefault();
+    document.querySelector('#contact-form').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+</script>
