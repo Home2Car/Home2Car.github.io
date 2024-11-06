@@ -11,27 +11,21 @@ teaser_image: "images/bg.jpg" # https://www.pexels.com/search/product%20testing/
 ---
 
 # Potrai andare ovunque con la tua auto elettrica. Come?
-Introductory text to get you excited about what we are doing. For example, I could tell you what our [prototype](#prototype) can do and then link you to our [contact form](#contact-form) so you can get in touch to ask for a **one-on-one** (or more :-)) showcase session.
-
----
 
 {{< info_cards >}}
----
-Have we cht yssour attention? We appreciate your feedback at this early stage of our product. Do not hesitate to contact us. In fact, if your interested, we'd love to give you a tour of the prototype we built.
 
 ---
 
-# Prototype
+# Possiedi un punto di ricarica privato? Mettilo a disposizione.
 
-You guessed it! We put our money where our mouth is. This is what we accomplished so far.
-
-Check out this sweet preview. Impressed much, are you?
+Home2car è una piattaforma gratuita per ricaricare con facilità la propria auto elettrica presso punti di ricarica privati, a basso prezzo!
 
 ---
 
-# Stay in touch
+# Esplora in anteprima il servizio.
 
-Let's stay in touch. Sign up for our newsletter. Do not worry, we will not bother you with boring details. Expect nice & tight updates about once or twice every 3 months.
+Siamo alla ricerca di early user per migliorare la piattaforma e ricevere feedback, vuoi metterti in gioco e contribuire al miglioramento del mercato elettrico? Ti aspettiamo!
 
 {{< contact_form id="contact-form" placeholder_name="Name" placeholder_email="Email Address" placeholder_message="Message" button_label="Send ✉️">}}
 
+--- 
