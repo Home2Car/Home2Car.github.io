@@ -14,11 +14,17 @@ teaser_image: "images/bg.jpg" # https://www.pexels.com/search/product%20testing/
 
 {{< info_cards >}}
 
+{{< button >}}
+
+
 ---
 
 # Possiedi un punto di ricarica privato? Mettilo a disposizione.
 
-Home2car è una piattaforma gratuita per ricaricare con facilità la propria auto elettrica presso punti di ricarica privati, a basso prezzo!
+Guadagna condividendo la tua colonnina privata quando non la usi: 
+**_rientri_** nei costi, **_aiuti_** altri automobilisti e **_contribuisci_** a un futuro elettrico più **_sostenibile!_**
+{{< button >}}
+
 
 ---
 

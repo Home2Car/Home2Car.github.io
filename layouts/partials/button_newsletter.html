@@ -1,0 +1,23 @@
+<div style="display: flex">
+  <a
+    class="button button-primary rounded-lg px-4 md:px-5 py-3 md:py-4 bg-teal-500 hover:bg-teal-600 md:text-lg md:leading-tight text-white font-semibold leading-tight shadow-md"
+    href="{{ .url }}"
+    id="button-cta"
+    onclick="scrollToContact(event)"
+    style="margin: auto;
+          --tw-text-opacity: 1;
+          color: rgba(255, 255, 255, var(--tw-text-opacity));
+          text-decoration: none; "
+  >
+    {{ .title }}
+  </a>
+</div>
+<script>
+  function scrollToContact(e) {
+    e.preventDefault();
+    document.querySelector('#contact-form').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+</script>
