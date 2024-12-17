@@ -19,7 +19,7 @@ teaser_image: "images/bg.jpg" # https://www.pexels.com/search/product%20testing/
 
 ---
 
-# Possiedi un punto di ricarica privato? Mettilo a disposizione.
+# Possiedi un punto di ricarica privato? Mettilo a disposizione!
 
 Guadagna condividendo la tua colonnina privata quando non la usi: 
 **_rientri_** nei costi, **_aiuti_** altri automobilisti e **_contribuisci_** a un futuro elettrico più **_sostenibile!_**
