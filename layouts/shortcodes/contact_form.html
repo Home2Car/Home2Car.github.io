@@ -73,25 +73,16 @@
       <input type="radio" name="possession" value="none" class="form-radio text-teal-500" onclick="handlePossessionChange(this)">
       <span class="text-gray-700">Nessuno</span>
     </label>
+
+    <div style="font-size: x-small">
+      I confirm that I have read and accepted the Privacy Policy and authorize Home2Car to process my personal data in accordance with EU Regulation 2016/679 (GDPR)
+      for purposes related to my request to participate in the testing program. I also consent to being contacted for information and updates about the service.
+
+      <a href="#" onclick="showPopup(event)">Link Privacy Policy</a>
+    </div>
   </div>
 </div>
 
-
-<!-- Conditional question (initially hidden) -->
-<div id="support-question" class="mt-6 hidden">
-  <p class="text-gray-700 font-medium mb-3">Vorresti supportare il progetto di home2car rendendoti disponibile ad essere contattato nelle prime fasi di staging della nostra piattaforma?</p>
-  <div class="space-y-2">
-    <label class="flex items-center space-x-3 cursor-pointer">
-      <input type="radio" name="support" value="yes" class="form-radio text-teal-500">
-      <span class="text-gray-700">Si, certo!</span>
-    </label>
-
-    <label class="flex items-center space-x-3 cursor-pointer">
-      <input type="radio" name="support" value="no" class="form-radio text-teal-500">
-      <span class="text-gray-700">No, grazie</span>
-    </label>
-  </div>
-</div>
 
 <!-- Submit button -->
 <div class="md:text-center mx-auto mt-6">
@@ -115,9 +106,7 @@
       supportRadios.forEach(radio => radio.checked = false);
     }
   }
-</script>
 
-<script>
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -184,11 +173,24 @@
     }
   }
 
+  function showPopup(event) {
+    event.preventDefault();
+    document.getElementById('myModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
+  }
+
 </script>
+
+
 
 <style>
   .prose p {
     margin-top: 0.2rem;
     margin-bottom: 0.4rem;
   }
+
+
 </style>

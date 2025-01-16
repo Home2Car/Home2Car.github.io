@@ -35,4 +35,6 @@ Siamo alla ricerca di early user per migliorare la piattaforma e ricevere feedba
 
 {{< contact_form id="contact-form" placeholder_name="Name" placeholder_email="Email Address" placeholder_message="Message" button_label="Send ✉️">}}
 
+{{< privacy_policy >}}
+
 --- 
