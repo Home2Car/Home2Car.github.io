@@ -3,7 +3,7 @@ header_brand: "Home2Car"
 header_tagline_paragraph: ""
 header_button_cta:
   url: "#contact-form"
-  title: "Get in touch"
+  title: "Contattaci"
 #header_button_more:
   # url: "#the-future---today"
   # title: "Why this is awesome?"
@@ -29,11 +29,11 @@ Guadagna condividendo la tua colonnina privata quando non la usi:
 ---
 
 
-# Esplora in anteprima il servizio.
+# Esplora in anteprima il servizio!
 
 Siamo alla ricerca di early user per migliorare la piattaforma e ricevere feedback, vuoi metterti in gioco e contribuire al miglioramento del mercato elettrico? Ti aspettiamo!
 
-{{< contact_form id="contact-form" placeholder_name="Name" placeholder_email="Email Address" placeholder_message="Message" button_label="Send ✉️">}}
+{{< contact_form id="contact-form" placeholder_name="Name" placeholder_email="Email Address" placeholder_message="Message" button_label="Invia ✉️">}}
 
 {{< privacy_policy >}}
 
