@@ -1,5 +1,5 @@
 {{ $tracker := resources.Get "js/visitors.min.js" }}
 {{ if $tracker }}
-{{ $secureJS := $tracker | resources.Fingerprint "sha512" }}
+{{ $secureJS := $tracker | fingerprint }}
 <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" defer></script>
 {{ end }}
