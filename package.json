@@ -8,7 +8,7 @@
     "test": "prettier --check . ",
     "format": "prettier --write . ",
     "obfuscate": "node scripts/obfuscate.js",
-    "build": "npm run obfuscate && hugo --minify"
+    "build": "npm run obfuscate && hugo"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^6.0.0",

@@ -76,7 +76,7 @@ jobs:
           ls -la assets/js/src || echo "No assets/js/src directory"
 
       - name: Build
-        run: hugo --minify
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
