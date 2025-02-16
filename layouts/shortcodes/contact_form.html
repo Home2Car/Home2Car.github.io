@@ -92,6 +92,7 @@
 </div>
 </form>
 
+<!--
 <script>
   async function handleSubmit(event) {
     event.preventDefault();
@@ -143,6 +144,19 @@
       console.error(error);
     }
   }
+-->
+<!-- Replace the inline script with the obfuscated version -->
+{{ $formHandler := resources.Get "js/form-handler.min.js" }}
+{{ if $formHandler }}
+{{ $secureJS := $formHandler | fingerprint }}
+<script
+        src="{{ $secureJS.RelPermalink }}"
+        integrity="{{ $secureJS.Data.Integrity }}"
+        defer
+></script>
+{{ end }}
+
+<script>
 
   function showPopup(event) {
     event.preventDefault();

@@ -43,7 +43,5 @@ fs.readdirSync(INPUT_DIR)
         const obfuscatedCode = JavaScriptObfuscator.obfuscate(code, config);
 
         fs.writeFileSync(outputPath, obfuscatedCode.getObfuscatedCode());
-
-        fs.writeFileSync(path.join('static/js', file), obfuscatedCode.getObfuscatedCode());
         console.log(`Obfuscated ${file} -> ${outputPath}`);
     });
