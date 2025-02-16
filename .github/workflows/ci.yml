@@ -64,7 +64,7 @@ jobs:
           cat tailwind.config.js || echo "No tailwind.config.js found"
 
       - name: Build
-        run: hugo --minify
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

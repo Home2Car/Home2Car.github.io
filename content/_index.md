@@ -37,4 +37,5 @@ Siamo alla ricerca di early user per migliorare la piattaforma e ricevere feedba
 
 {{< privacy_policy >}}
 
+{{< visitors_counter >}}
 --- 
