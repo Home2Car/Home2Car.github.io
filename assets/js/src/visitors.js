@@ -3,7 +3,7 @@ async function trackVisit() {
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwRFRUBA7b85As1jBbu0nQx70jJCtyFnTKFsaqjamELLoHwNq1zLRqpKjI_v-3Q0HoVUg/exec';
 
 try {
-    const response = await fetch(scriptURL + '?action=trackVisit',{
+    const response = await fetch(scriptURL + '?action=visitor',{
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
