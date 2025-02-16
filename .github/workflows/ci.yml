@@ -63,8 +63,20 @@ jobs:
           echo "Checking Tailwind config:"
           cat tailwind.config.js || echo "No tailwind.config.js found"
 
+      # Add obfuscation step before build
+      - name: Obfuscate JavaScript
+        run: npm run obfuscate
+
+      # Add debugging for build process
+      - name: Debug Build Process
+        run: |
+          echo "Contents of assets/js:"
+          ls -la assets/js || echo "No assets/js directory"
+          echo "Contents of assets/js/src:"
+          ls -la assets/js/src || echo "No assets/js/src directory"
+
       - name: Build
-        run: npm run build
+        run: hugo --minify
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
