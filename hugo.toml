@@ -1,4 +1,4 @@
-baseURL = 'https://nicola-ferrarese.github.io/Home2Car-LandingPage/'
+baseURL = 'https://www.home2car.eu/'
 languageCode = 'en-us'
 title = 'Home2Car'
 theme = "hugo-product-launch"
