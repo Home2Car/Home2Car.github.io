@@ -22,7 +22,7 @@ async function handleSubmit(event) {
         submitButton.innerHTML = 'Invio...';
 
         console.log('Submitting form', formData);
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwRFRUBA7b85As1jBbu0nQx70jJCtyFnTKFsaqjamELLoHwNq1zLRqpKjI_v-3Q0HoVUg/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxEiEVdmm2o3HACyr-pAvYckZLqrC4tFWGnxZns__N5P7RAD804gJSw23Yu2TViRFXXiw/exec', {
             method: 'POST',
             mode: 'no-cors',
             headers: {

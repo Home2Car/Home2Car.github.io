@@ -1,6 +1,6 @@
 async function trackVisit() {
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwRFRUBA7b85As1jBbu0nQx70jJCtyFnTKFsaqjamELLoHwNq1zLRqpKjI_v-3Q0HoVUg/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxEiEVdmm2o3HACyr-pAvYckZLqrC4tFWGnxZns__N5P7RAD804gJSw23Yu2TViRFXXiw/exec';
 
 try {
     const response = await fetch(scriptURL + '?action=visitor',{
